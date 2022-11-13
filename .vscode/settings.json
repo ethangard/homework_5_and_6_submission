@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Homework_5_test",
+      "database": "blog_on_rails_development",
+      "username": "ethangard",
+      "password": "babki123$"
+    }
+  ]
+}

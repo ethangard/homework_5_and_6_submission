@@ -1,0 +1,15 @@
+<nav>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="/posts">Blog on Rails</a></li>
+    <li class="nav-item"><a href="/posts">Home</a></li>
+    <li class="nav-item"><a href="/posts/new">New Post</a></li>
+     <% if(user_signed_in?) %>
+        Hello <%= current_user.name %>
+      <li class="nav-item"> <%= link_to "Edit Profile",  edit_users_path %> </li>
+      <li class="nav-item"><%= link_to "Log Out", session_path, data: {turbo_method: :delete } %> </li>
+        <% else %>
+      <li class="nav-item"><%= link_to "Sign In", new_session_path %></li>
+    <% end %>
+    <li class="nav-item"><%= link_to "Sign Up", new_users_path %> </li>
+  </ul>
+</nav>
