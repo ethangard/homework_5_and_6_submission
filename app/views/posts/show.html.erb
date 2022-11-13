@@ -1,0 +1,35 @@
+<!-- <h1>Posts#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+ -->
+
+<div class="container">
+  <div class="show-post">
+    <h1 class="mt-4"><%= @post.title %></h1>
+      <p><%= @post.body %> </p>
+    <p><small>Posted <%= time_ago_in_words(@post.created_at) %> ago </small></p>
+
+    <div class="btn-pos">
+      <%= button_to 'Edit', edit_post_path(@post), method: :get, class: 'btn btn-outline-primary btn-marg mb-4' %> 
+
+      <%= button_to 'Delete', post_path(@post), method: :delete, class: "btn btn-outline-primary btn-marg mb-4", form: {data: {turbo_confirm: "Are you sure?"}} %> 
+    </div>
+  </div>
+
+  <%= render 'partials/new_comment' %> 
+
+    <ul>
+      <% @comments.each do |comment| %> 
+      <div class="mb-2">
+        <li>
+          <%= comment.comment %> 
+        </li>
+        <small>
+           Answered <%= time_ago_in_words(comment.created_at)%> ago  
+        </small>
+         <%= link_to "Delete", post_comment_path(@post.id, comment.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+         </div>
+      <% end %> 
+      </div>
+    </ul>
+    
+</div>
